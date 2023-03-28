@@ -7,8 +7,10 @@
     "@types/node": "^18.15.5",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@types/react-router-dom": "^5.3.3",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
+    "dotenv-webpack": "^8.0.1",
     "html-webpack-plugin": "^5.5.0",
     "mini-css-extract-plugin": "^2.7.5",
     "rimraf": "^4.4.0",
@@ -21,10 +23,14 @@
   "scripts": {
     "start": "webpack serve --open",
     "clean-build-folder": "rimraf  --glob ./build/*",
-    "build": "npm run clean-build-folder && webpack build"
+    "build": "npm run clean-build-folder && webpack build",
+    "deploy": "gh-pages -d build"
   },
   "dependencies": {
+    "dotenv": "^16.0.3",
+    "gh-pages": "^5.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.9.0"
   }
 }

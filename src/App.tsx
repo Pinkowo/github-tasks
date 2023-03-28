@@ -1,21 +1,19 @@
-import React, { useState } from "react";
-import ReactDOM from 'react-dom';
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import HomePage from './pages/home';
+import AboutPage from './pages/about';
 
-export default function App() {
-    const [counter, setCounter] = useState(0);
+export interface IAppProps { }
 
-    const handleClick = () => {
-        setCounter(counter => counter + 1);
-        setCounter(counter => counter + 1);
-    };
-
+const App: React.FunctionComponent<IAppProps> = () => {
     return (
-        <div className="App">
-            <h1>Function Component</h1>
-            <div>counter: {counter}</div>
-            <br />
-            <button onClick={handleClick}>Click me</button>
-        </div>
+        <Router basename={process.env.GITHUB_URL}>
+            <Routes>
+                <Route path="/" element={<HomePage />} />
+                <Route path="/about" element={<AboutPage />} />
+            </Routes>
+        </Router>
     );
 }
-ReactDOM.render(<App />, document.getElementById("root"));
+
+export default App;

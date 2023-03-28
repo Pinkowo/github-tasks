@@ -1,14 +1,17 @@
 const path = require('path');
-
+const Dotenv = require('dotenv-webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
     mode: 'development',
-    entry: ['./src/App.tsx', './src/index.js'],
+    entry: ['./src/App.tsx', './src/index.tsx'],
     output: {
         path: path.resolve(__dirname, './build'),
         filename: 'js/bundle.js',
+    },
+    resolve: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx']
     },
     module: {
         rules: [
@@ -43,6 +46,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: './css/index.css',
         }),
+        new Dotenv()
     ],
     devServer: {
         port: 3000,
