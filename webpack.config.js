@@ -9,6 +9,7 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, './build'),
         filename: 'js/bundle.js',
+        publicPath: '/'
     },
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx']
@@ -44,11 +45,12 @@ module.exports = {
             minify: true,
         }),
         new MiniCssExtractPlugin({
-            filename: './css/index.css',
+            filename: 'css/index.css',
         }),
         new Dotenv()
     ],
     devServer: {
         port: 3000,
+        historyApiFallback: true,
     },
 };
