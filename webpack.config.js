@@ -35,6 +35,14 @@ module.exports = {
                 test: /\.css$/,
                 use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
+                ]
+            },
         ],
     },
     plugins: [
@@ -43,9 +51,6 @@ module.exports = {
             filename: 'index.html',
             inject: true,
             minify: true,
-        }),
-        new MiniCssExtractPlugin({
-            filename: 'css/index.css',
         }),
         new Dotenv()
     ],

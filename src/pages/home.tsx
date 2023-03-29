@@ -10,7 +10,7 @@ const HomePage: React.FunctionComponent<IHomePageProps> = () => {
     }
 
     return (
-        <div>
+        <div className="home">
             <p>hello world</p>
             <a onClick={handleOAuth}>Let's do it</a>
         </div>
